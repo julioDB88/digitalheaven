@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-
+import { environment } from '../../environments/environment';
 export interface LoginRequest {
   email: string;
   password: string;
@@ -9,6 +9,7 @@ export interface LoginRequest {
 
 export interface LoginResponse {
   token: string;
+  success: boolean;
 }
 
 @Injectable({
@@ -18,7 +19,7 @@ export class AuthService {
 
   private http = inject(HttpClient);
 
-  private readonly apiUrl = 'https://api.midominio.com/auth';
+  private readonly apiUrl = environment.server_url;
 
   login(credentials: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(
@@ -37,8 +38,15 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    return localStorage.getItem('token');
+    // comparar token con el almacenado en localStorage para verificar si es válido
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return null;
+    }
+    return token;
   }
+
+
 
   isAuthenticated(): boolean {
     return !!this.getToken();
