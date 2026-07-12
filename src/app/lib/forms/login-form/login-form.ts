@@ -49,11 +49,14 @@ export class LoginForm {
       this.authService.login(this.loginForm.getRawValue())
         .subscribe({
           next: (response) => {
-            this.authService.saveToken(response.token);
-
-            this.router.navigate(['/dashboard']);
+            // this.authService.getToken(response.token);
+            if (response.success) {
+              this.authService.setToken(response.token);
+              this.router.navigate(['/admin']);
+            }
           },
-          error: () => {
+          error: (e) => {
+            console.log('Login failed:', e);
             console.log('Usuario o contraseña incorrectos');
           }
         });

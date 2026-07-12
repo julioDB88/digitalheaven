@@ -23,17 +23,20 @@ export class AuthService {
 
   login(credentials: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(
-      `${this.apiUrl}/login`,
+      `${this.apiUrl}login`,
       credentials,
       { responseType: 'json' }
     ).pipe(
-      tap(({ token }) => {
-        localStorage.setItem('token', token);
-      })
+      tap(response => this.setToken(response.token))
     );
   }
 
+  setToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+
   logout(): void {
+
     localStorage.removeItem('token');
   }
 
