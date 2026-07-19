@@ -1,14 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+
 import { RouterLink } from "@angular/router";
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input'; //
+
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-navbar',
-  imports: [MatMenuModule, MatButtonModule, MatIconModule, RouterLink, MatFormFieldModule, FormsModule, MatInputModule],
+  imports: [RouterLink, FormsModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Owner } from "../../lib/comp/owner/owner";
+import { Soulmate } from "../../lib/comp/soulmate/soulmate";
 
 
 
@@ -9,7 +9,7 @@ export interface DialogData {
 }
 @Component({
   selector: 'app-admin',
-  imports: [Owner],
+  imports: [Soulmate],
   templateUrl: './admin.html',
   styleUrl: './admin.css',
 })

@@ -1,24 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+
 import { AuthService } from '../../../services/auth';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-form',
-  imports: [ReactiveFormsModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatCheckboxModule,
-    CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './login-form.html',
   styleUrl: './login-form.css',
 })

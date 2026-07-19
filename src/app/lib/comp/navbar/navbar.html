@@ -1,16 +1,16 @@
-<div> <button matIconButton [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon>menu</mat-icon>
+<div> <button aria-label="Example icon-button with a menu">
+        <span>menu</span>
     </button>
-    <mat-menu #menu="matMenu">
+    <div>
         <a mat-menu-item routerLink="">Home</a>
         <a mat-menu-item routerLink="/who">Quienes Somos</a>
         <a mat-menu-item routerLink="/what">Que hacemos</a>
         <a mat-menu-item routerLink="/contact">Contacto</a>
         <a mat-menu-item routerLink="/pricing">Precios</a>
-    </mat-menu>
-    <mat-form-field appearance="outline" class="search-field">
-        <mat-label>Buscar...</mat-label>
-        <input matInput type="text" [(ngModel)]="searchQuery">
-        <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
+    </div>
+    <div class="search-field">
+        <label>Buscar...</label>
+        <input type="text" [(ngModel)]="searchQuery">
+        <span>search</span>
+    </div>
 </div>
